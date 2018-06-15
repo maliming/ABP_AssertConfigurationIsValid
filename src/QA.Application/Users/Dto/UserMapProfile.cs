@@ -7,11 +7,14 @@ namespace QA.Users.Dto
     {
         public UserMapProfile()
         {
-            CreateMap<UserDto, User>();
-            CreateMap<UserDto, User>().ForMember(x => x.Roles, opt => opt.Ignore());
+            CreateMap<User, UserDto>(MemberList.Destination).ForMember(x => x.RoleNames, opt => opt.Ignore());
 
-            CreateMap<CreateUserDto, User>();
-            CreateMap<CreateUserDto, User>().ForMember(x => x.Roles, opt => opt.Ignore());
+            CreateMap<UserDto, User>(MemberList.Source).ForMember(x => x.Roles, opt => opt.Ignore())
+                .ForSourceMember(x => x.FullName, opt => opt.Ignore())
+                .ForSourceMember(x => x.RoleNames, opt => opt.Ignore());
+
+            CreateMap<CreateUserDto, User>(MemberList.Source).ForMember(x => x.Roles, opt => opt.Ignore())
+                .ForSourceMember(x => x.RoleNames, opt => opt.Ignore());
         }
     }
 }

@@ -7,7 +7,6 @@ using QA.Authorization.Users;
 
 namespace QA.Users.Dto
 {
-    [AutoMapTo(typeof(User))]
     public class CreateUserDto : IShouldNormalize
     {
         [Required]

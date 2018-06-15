@@ -7,7 +7,6 @@ using QA.Authorization.Roles;
 
 namespace QA.Roles.Dto
 {
-    [AutoMap(typeof(Role))]
     public class RoleDto : EntityDto<int>
     {
         [Required]

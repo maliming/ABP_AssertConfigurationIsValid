@@ -6,7 +6,6 @@ using QA.Authorization.Roles;
 
 namespace QA.Roles.Dto
 {
-    [AutoMapTo(typeof(Role))]
     public class CreateRoleDto
     {
         [Required]
